@@ -18,14 +18,12 @@ print b.width
 
 def sortbyname(v1,v2):
 	res
-	
-	if ( rt.toLower(v1.name) < rt.toLower(v2.name)): d =-1
-	else : d=1
-	
+
+	d = -1 if ( rt.toLower(v1.name) < rt.toLower(v2.name)) else 1
 #~ compare les numeros entre eux et les classe	
 	if 	(d < 0.): res = - 1
 	elif (d > 0.) : res = 1
 	else : res = 0
-		
+
 	res
 	

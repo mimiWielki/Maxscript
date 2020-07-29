@@ -42,19 +42,20 @@ class PhotoViewer(QtGui.QGraphicsView):
         return self._zoom
 
     def wheelEvent(self, event):
-        if not self._photo.pixmap().isNull():
-            if event.delta() > 0:
-                factor = 1.25
-                self._zoom += 1
-            else:
-                factor = 0.8
-                self._zoom -= 1
-            if self._zoom > 0:
-                self.scale(factor, factor)
-            elif self._zoom == 0:
-                self.fitInView()
-            else:
-                self._zoom = 0
+        if self._photo.pixmap().isNull():
+            return
+        if event.delta() > 0:
+            factor = 1.25
+            self._zoom += 1
+        else:
+            factor = 0.8
+            self._zoom -= 1
+        if self._zoom > 0:
+            self.scale(factor, factor)
+        elif self._zoom == 0:
+            self.fitInView()
+        else:
+            self._zoom = 0
 
 class Window(QtGui.QWidget):
     def __init__(self):
